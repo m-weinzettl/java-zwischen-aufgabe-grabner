@@ -1,0 +1,28 @@
+class attribute
+    km stand
+    tank größe
+    verbrauch/100km
+    treibstoff verbraucht
+    gefahrene km
+    zustand (ganz (1) / defekt (0))
+    farbe
+    austattung
+
+lkw
+    Fracht
+
+pkw
+    mit / ohne anhänger
+
+bike
+    mit / ohne helm
+    mit / ohne jacke
+
+park
+    max anzahl
+        pkw
+        lkw
+        bike
+    fahrzeuge aktuell verliehen
+    fahrzeug frei
+    zustand
