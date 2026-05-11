@@ -9,7 +9,6 @@ public class Pkw extends Vehicle implements Tanken ,Km_Ablesen {
         this.tank_groesse = tank_groesse;
         this.verbrauch_pro_100km = verbrauch;
         this.zustand = 1;
-
     }
 }
 

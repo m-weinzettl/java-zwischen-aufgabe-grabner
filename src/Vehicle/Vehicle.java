@@ -27,13 +27,21 @@ public abstract class Vehicle implements Km_Ablesen, Tanken {
         if (this.treibstoff_verbraucht < 0) this.treibstoff_verbraucht = 0;
         System.out.println("Es wurde " + menge + " getankt.");
     }
+    public void voll_tanken() {
+        double menge_bis_voll = this.treibstoff_verbraucht;
+        if (menge_bis_voll > 0) {
+            tanken((int)menge_bis_voll);
+            System.out.println("Das Fahrzeug wurde vollgetankt.");
+        } else {
+            System.out.println("Der Tank ist bereits voll.");
+        }
+    }
 
     public void fahre(int strecke) {
         this.gefahrene_km = strecke;
         this.km_stand += strecke;
         double verbrauch = (strecke / 100.0) * this.verbrauch_pro_100km;
         this.treibstoff_verbraucht += verbrauch;
-        // KORREKTUR: Variable "strecke" in den Print-Befehl eingebaut
         System.out.println(this.getClass().getSimpleName() + ": Es wurden " + strecke + " Km gefahren.");
     }
 
@@ -46,6 +54,11 @@ public abstract class Vehicle implements Km_Ablesen, Tanken {
         } else {
             System.out.println("Fehler: Der neue Tachostand ist niedriger als der alte!");
         }
+    }
+
+
+    public double aktueller_tankinhalt() {
+        return this.tank_groesse - this.treibstoff_verbraucht;
     }
 
     @Override
