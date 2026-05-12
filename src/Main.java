@@ -1,6 +1,5 @@
-import Park.Park;
-import Vehicle.*;
-import java.util.LinkedList;
+import Controller.Park;
+import Models.*;
 
 class Main{
         public static void main(String[] args) {
@@ -9,13 +8,14 @@ class Main{
             Lkw lkw_1 =  new Lkw("Weiß", 120, 18);
             Pkw pkw_1 = new Pkw("Skoda Racing Blue", 55, 7);
 
-            Park mein_park = new Park();
+            Park<Vehicle> park = new Park<>();
 
-            mein_park.add_vehicle(lkw_1);
-            mein_park.add_vehicle(pkw_1);
-            mein_park.add_vehicle(bike_1);
+            park.add_vehicle(lkw_1);
+            park.add_vehicle(pkw_1);
+            park.add_vehicle(bike_1);
 
-            mein_park.zeige_vehicles();
+            park.zeige_vehicles();
+            park.vehicle_tanken();
     }
 }
 
@@ -26,9 +26,12 @@ vererbung +
 polymorphismus +
 array list / linked list / hach map was ist besser hash set +
 try except immer verwenden (selbst oder fertige?) +
-generics ()
-lambda ()
+records +
+komposition (passt nicht zum aktuellen programm, wird nur theorie gelernt)
+generics +
 jdbc db ()
+lambda ()
+unity testing ()
 multi threating ()
 
  */

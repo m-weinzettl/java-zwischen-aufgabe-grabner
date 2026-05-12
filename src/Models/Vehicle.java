@@ -1,4 +1,4 @@
-package Vehicle;
+package Models;
 
 import Interfaces.*;
 
@@ -11,6 +11,7 @@ public abstract class Vehicle implements Km_Ablesen, Tanken {
     protected int zustand; // 1 = ganz, 0 = defekt
     protected String farbe;
     protected String ausstattung;
+    //mehr mit private (package)
 
     // Getter und Setter
     public String getAusstattung() { return ausstattung; }
@@ -27,6 +28,7 @@ public abstract class Vehicle implements Km_Ablesen, Tanken {
         if (this.treibstoff_verbraucht < 0) this.treibstoff_verbraucht = 0;
         System.out.println("Es wurde " + menge + " getankt.");
     }
+
     public void voll_tanken() {
         double menge_bis_voll = this.treibstoff_verbraucht;
         if (menge_bis_voll > 0) {

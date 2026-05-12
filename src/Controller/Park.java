@@ -1,22 +1,21 @@
-package Park;
+package Controller;
 
-import Vehicle.Vehicle;
+import Models.Vehicle;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Park {
+public class Park<T extends Vehicle>  {
     Scanner scanner = new Scanner(System.in);
 
-    private List<Vehicle> vehicles;
+    private final List<T> vehicles;
 
     public Park() {
         this.vehicles = new LinkedList<>();
     }
 
-    public void add_vehicle(Vehicle vehicle) {
+    public void add_vehicle(T vehicle) {
         try {
 
             if (vehicle != null) {
@@ -31,7 +30,7 @@ public class Park {
 
     public void zeige_vehicles() {
         System.out.println("Fahrzeuge im Park: ");
-        for (Vehicle vehicle : vehicles) {
+        for (T vehicle : vehicles) {
             System.out.println(vehicle.toString());
         }
     }

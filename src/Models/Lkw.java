@@ -1,4 +1,4 @@
-package Vehicle;
+package Models;
 import Interfaces.*;
 
 public class Lkw extends Vehicle implements Tanken, Km_Ablesen {
