@@ -1,12 +1,14 @@
 package Controller;
 
+import Models.Strafzettel;
 import Models.Vehicle;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
-public class Park<T extends Vehicle>  {
+public class Park<T extends Vehicle> {
     Scanner scanner = new Scanner(System.in);
 
     private final List<T> vehicles;
@@ -22,8 +24,7 @@ public class Park<T extends Vehicle>  {
                 this.vehicles.add(vehicle);
                 System.out.println(vehicle.getClass().getSimpleName() + " wurde dem Park hinzugefügt.");
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
@@ -73,5 +74,30 @@ public class Park<T extends Vehicle>  {
             System.out.println("Fehler: Dieses Fahrzeug existiert nicht!");
         }
     }
+
+    public void zeige_defekte_vehicles() {
+        System.out.println("Defekte Fahrzeuge:");
+
+        vehicles.stream()
+                .filter(v -> v.get_zustand() == 0)
+                .forEach(v -> System.out.println("Defekt: " + v.get_farbe() + " " + v.getClass().getSimpleName()));
+
+    }
+
+    public void erstelle_strafzettel_fuer_defekte() {
+        List<Strafzettel> tickets = vehicles.stream()
+                .filter(v -> v.get_zustand() == 0)
+                .map(v -> new Strafzettel(v.get_kennzeichen(), 0, 500.0))
+                .collect(Collectors.toList());
+
+        tickets.forEach(t -> System.out.println("Ticket ausgestellt: " + t));
+    }
+
+    public Strafzettel strafe_zu_schnell_gefahren() {
+        Strafzettel zu_schnell = new Strafzettel("LB-1234", 65, 120);
+        System.out.println(Strafzettel.class.getSimpleName() + ": " + zu_schnell.toString());
+        return zu_schnell;
+    }
+
 }
 

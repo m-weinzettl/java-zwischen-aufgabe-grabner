@@ -4,9 +4,9 @@ import Models.*;
 class Main{
         public static void main(String[] args) {
 
-            Bike bike_1 = new Bike("Grün", 20, 7);
-            Lkw lkw_1 =  new Lkw("Weiß", 120, 18);
-            Pkw pkw_1 = new Pkw("Skoda Racing Blue", 55, 7);
+            Bike bike_1 = new Bike("Grün", "LB-121", 20, 7);
+            Lkw lkw_1 =  new Lkw("Weiß", "LB-122",120, 18);
+            Pkw pkw_1 = new Pkw("Skoda Racing Blue", "LB-123",55, 7);
 
             Park<Vehicle> park = new Park<>();
 
@@ -31,7 +31,7 @@ komposition (passt nicht zum aktuellen programm, wird nur theorie gelernt)
 generics +
 jdbc db ()
 lambda ()
-unity testing ()
+unity testing +
 multi threating ()
 
  */

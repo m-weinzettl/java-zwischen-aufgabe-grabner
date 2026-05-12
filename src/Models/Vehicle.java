@@ -11,16 +11,51 @@ public abstract class Vehicle implements Km_Ablesen, Tanken {
     protected int zustand; // 1 = ganz, 0 = defekt
     protected String farbe;
     protected String ausstattung;
+    private String kennzeichen;
     //mehr mit private (package)
 
-    // Getter und Setter
-    public String getAusstattung() { return ausstattung; }
-    public void set_zustand() { zustand = 1; }
-    public int getTank_groesse() { return tank_groesse; }
-    public void setTank_groesse(int tank_groesse) { this.tank_groesse = tank_groesse; }
-    public String getFarbe() { return farbe; }
-    public void setFarbe(String farbe) { this.farbe = farbe; }
+    public String get_kennzeichen() {
+        return kennzeichen;
+    }
 
+    public void set_kennzeichen(String kennzeichen) {
+        this.kennzeichen = kennzeichen;
+    }
+
+
+
+    // Getter und Setter
+    public String get_ausstattung() {
+        return ausstattung;
+    }
+
+    public void set_zustand() {
+        zustand = 1;
+    }
+
+    public int getTank_groesse() {
+        return tank_groesse;
+    }
+
+    public void setTank_groesse(int tank_groesse) {
+        this.tank_groesse = tank_groesse;
+    }
+
+    public String get_farbe() {
+        return this.farbe;
+    }
+
+    public void set_farbe(String farbe) {
+        this.farbe = farbe;
+    }
+
+    public int get_zustand() {
+        return this.zustand;
+    }
+
+    public String get_typ_name() {
+        return this.getClass().getSimpleName();
+    }
 
     @Override
     public void tanken(int menge) {
@@ -32,7 +67,7 @@ public abstract class Vehicle implements Km_Ablesen, Tanken {
     public void voll_tanken() {
         double menge_bis_voll = this.treibstoff_verbraucht;
         if (menge_bis_voll > 0) {
-            tanken((int)menge_bis_voll);
+            tanken((int) menge_bis_voll);
             System.out.println("Das Fahrzeug wurde vollgetankt.");
         } else {
             System.out.println("Der Tank ist bereits voll.");

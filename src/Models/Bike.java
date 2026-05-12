@@ -4,7 +4,8 @@ import Interfaces.*;
 public class Bike extends Vehicle implements Tanken, Km_Ablesen {
     public boolean helm;
 
-    public Bike(String farbe, int tank_groesse, double verbrauch){
+    public Bike(String farbe, String kennzeichen,  int tank_groesse, double verbrauch){
+        this.set_kennzeichen(get_kennzeichen());
         this.farbe = farbe;
         this.tank_groesse = tank_groesse;
         this.verbrauch_pro_100km = verbrauch;
